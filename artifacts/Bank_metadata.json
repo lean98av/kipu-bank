@@ -1,0 +1,368 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_bankCap",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "Bank_AccountAlreadyExists",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "Bank_AccountNotExists",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "Bank_DifferentOwner",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "Bank_ExceedBankCap",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "Bank_ExceedWithdrawAmount",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "Bank_InsuficientFunds",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "Bank_InvalidDeposit",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "Bank_NoReentrancy",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "Bank_TransferError",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "origin",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "valor",
+						"type": "uint256"
+					}
+				],
+				"name": "Bank_Deposit",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "destination",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "valor",
+						"type": "uint256"
+					}
+				],
+				"name": "Bank_Withdraw",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_email",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					}
+				],
+				"name": "createAccount",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "deposit",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "usuario",
+						"type": "address"
+					}
+				],
+				"name": "getBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "i_bankCap",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "i_contractOwner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "i_maxWithdrawAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "s_depositCounter",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "s_totalBankBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "s_withdrawCounter",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "monto",
+						"type": "uint256"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "lean98av",
+			"details": "Este contrato es únicamente con fines académicos.",
+			"events": {
+				"Bank_Deposit(address,uint256)": {
+					"params": {
+						"origin": "Dirección del usuario que deposita",
+						"valor": "Monto depositado"
+					}
+				},
+				"Bank_Withdraw(address,uint256)": {
+					"params": {
+						"destination": "Dirección del usuario que retira",
+						"valor": "Monto retirado"
+					}
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"constructor": {
+					"params": {
+						"_bankCap": "Límite global de fondos que puede recibir el banco"
+					}
+				},
+				"createAccount(string,string)": {
+					"params": {
+						"_email": "Email del usuario",
+						"_name": "Nombre del usuario"
+					}
+				},
+				"deposit()": {
+					"details": "Se sigue el patrón checks-effects-interactions"
+				},
+				"getBalance(address)": {
+					"params": {
+						"usuario": "Dirección del usuario a consultar"
+					},
+					"returns": {
+						"_0": "Balance actual en wei"
+					}
+				},
+				"withdraw(uint256)": {
+					"params": {
+						"monto": "Cantidad a retirar en wei"
+					}
+				}
+			},
+			"stateVariables": {
+				"locked": {
+					"details": "Flag interno para prevenir ataques de reentrancy"
+				}
+			},
+			"title": "KipuBank",
+			"version": 1
+		},
+		"userdoc": {
+			"events": {
+				"Bank_Deposit(address,uint256)": {
+					"notice": "Evento emitido cuando se realiza un depósito exitoso"
+				},
+				"Bank_Withdraw(address,uint256)": {
+					"notice": "Evento emitido cuando se realiza un retiro exitoso"
+				}
+			},
+			"kind": "user",
+			"methods": {
+				"constructor": {
+					"notice": "Constructor del contrato"
+				},
+				"createAccount(string,string)": {
+					"notice": "Crea una cuenta nueva con email y nombre, y deposita ETH inicial"
+				},
+				"deposit()": {
+					"notice": "Permite a un usuario depositar ETH en su cuenta"
+				},
+				"getBalance(address)": {
+					"notice": "Devuelve el balance de una cuenta"
+				},
+				"i_bankCap()": {
+					"notice": "Capacidad máxima global de depósitos en el banco"
+				},
+				"i_contractOwner()": {
+					"notice": "Dirección del dueño del contrato"
+				},
+				"i_maxWithdrawAmount()": {
+					"notice": "Límite máximo de retiro permitido por transacción"
+				},
+				"s_depositCounter()": {
+					"notice": "Contador de depósitos realizados en el contrato"
+				},
+				"s_totalBankBalance()": {
+					"notice": "Suma total de fondos depositados en el banco"
+				},
+				"s_withdrawCounter()": {
+					"notice": "Contador de retiros realizados en el contrato"
+				},
+				"withdraw(uint256)": {
+					"notice": "Permite a un usuario retirar ETH de su cuenta, respetando el límite máximo"
+				}
+			},
+			"notice": "Contrato bancario educativo que permite depósitos y retiros de ETH con límites y seguridad.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/1_KipuBank.sol": "Bank"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/1_KipuBank.sol": {
+			"keccak256": "0xb42da0ed1a641bf9c8be51e59909df79866ee10014dae1b08e365ff8fa3abcce",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ee80659b71774ac0a42ceb429c3c059ea40979ab1cf409e0de1e40da0c0a060e",
+				"dweb:/ipfs/QmSGuk2E8a1RjZPevaBXw9BXorMEZRP3dGGph61BhtqJLs"
+			]
+		}
+	},
+	"version": 1
+}
