@@ -123,7 +123,6 @@ contract Bank {
         if (msg.value == 0) revert Bank_InvalidDeposit();
         if (s_totalBankBalance + msg.value > i_bankCap)
             revert Bank_ExceedBankCap();
-        if (!accounts[msg.sender].exists) revert Bank_AccountNotExists();
 
         _updateVault(msg.sender, msg.value);
 
